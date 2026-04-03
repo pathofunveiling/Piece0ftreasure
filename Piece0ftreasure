@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Sunshine</title><style>
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #FFD580, #FFB347, #FFF3A0);
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* CLOUDS */
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud1 {
+    width: 100px;
+    height: 60px;
+    top: 20%;
+    left: -150px;
+    animation: floatCloud 40s linear infinite;
+}
+
+.cloud1::before {
+    width: 60px;
+    height: 60px;
+    top: -20px;
+    left: 10px;
+}
+
+.cloud1::after {
+    width: 70px;
+    height: 70px;
+    top: -10px;
+    left: 40px;
+}
+
+.cloud2 {
+    width: 120px;
+    height: 70px;
+    top: 50%;
+    left: -200px;
+    animation: floatCloud 60s linear infinite;
+}
+
+.cloud2::before {
+    width: 70px;
+    height: 70px;
+    top: -25px;
+    left: 20px;
+}
+
+.cloud2::after {
+    width: 80px;
+    height: 80px;
+    top: -15px;
+    left: 50px;
+}
+
+@keyframes floatCloud {
+    from { transform: translateX(0); }
+    to { transform: translateX(120vw); }
+}
+
+/* SPARKLES */
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: sparkleAnim 3s infinite ease-in-out;
+}
+
+@keyframes sparkleAnim {
+    0% { transform: scale(0.5); opacity: 0.3; }
+    50% { transform: scale(1.5); opacity: 1; }
+    100% { transform: scale(0.5); opacity: 0.3; }
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    padding: 50px 20px;
+}
+
+h1 {
+    font-size: 3em;
+    text-shadow: 2px 2px 5px rgba(255, 200, 0, 0.5);
+}
+
+p {
+    font-size: 1.2em;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(255, 180, 0, 0.3);
+}
+
+button {
+    background: #FFF3A0;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    color: #ff9e00;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ffe066;
+    transform: scale(1.05);
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+</style></head><body><!-- CLOUDS --><div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div><!-- SPARKLES --><script>
+for (let i = 0; i < 30; i++) {
+    const sparkle = document.createElement('div');
+    sparkle.classList.add('sparkle');
+    sparkle.style.top = Math.random() * 100 + 'vh';
+    sparkle.style.left = Math.random() * 100 + 'vw';
+    sparkle.style.animationDelay = Math.random() * 3 + 's';
+    document.body.appendChild(sparkle);
+}
+</script><div class="container">
+    <h1>☀️ Sweet Sunshine ☀️</h1>
+    <p>A soft, cozy, baby aesthetic space ✿</p><div class="card">
+    <p>You're glowing today ✧</p>
+</div>
+
+<div class="card">
+    <p>Stay warm and happy ♡</p>
+</div>
+
+<button onclick="showMessage()">Click me!</button>
+
+<div class="footer">Made with warmth ☁️</div>
+
+</div><script>
+function showMessage() {
+    alert("You're as bright as sunshine! ☀️");
+}
+</script><!-- SOFT BACKGROUND MUSIC --><audio id="bgMusic" autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b3c2f1b2.mp3?filename=soft-piano-ambient-110624.mp3" type="audio/mpeg">
+</audio><script>
+// Fix autoplay restrictions (plays after first click anywhere)
+document.addEventListener('click', () => {
+    const music = document.getElementById('bgMusic');
+    music.play();
+}, { once: true });
+</script></body>
+</html>
